@@ -2,8 +2,8 @@
 
 namespace Spatie\MigrateFresh\Test;
 
-use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Spatie\MigrateFresh\Commands\MigrateFresh;
+use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
@@ -15,5 +15,4 @@ class Kernel extends ConsoleKernel
     protected $commands = [
        MigrateFresh::class,
     ];
-
 }

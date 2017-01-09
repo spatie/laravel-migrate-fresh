@@ -2,9 +2,9 @@
 
 namespace Spatie\MigrateFresh\Test;
 
+use Schema;
 use Artisan;
 use Illuminate\Support\Facades\DB;
-use Schema;
 
 class MigrateFreshTest extends TestCase
 {

@@ -26,6 +26,5 @@ class CreateNewTable extends Migration
      */
     public function down()
     {
-
     }
 }
