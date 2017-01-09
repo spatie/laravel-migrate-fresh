@@ -43,7 +43,7 @@ class MigrateFresh extends Command
         $this->info('Running migrations...');
         $this->call('migrate', ['--force' => true]);
 
-        if ($this->hasOption('seed')) {
+        if ($this->option('seed')) {
             $this->info('Running seeders...');
             $this->call('db:seed', ['--force' => true]);
         }

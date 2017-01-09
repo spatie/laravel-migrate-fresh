@@ -3,6 +3,7 @@
 namespace Spatie\MigrateFresh\Test;
 
 use Artisan;
+use Illuminate\Support\Facades\DB;
 use Schema;
 
 class MigrateFreshTest extends TestCase
@@ -13,7 +14,7 @@ class MigrateFreshTest extends TestCase
         $this->assertTableExists('old_table');
         $this->assertTableNotExists('new_table');
 
-        $this->artisan('migrate:fresh');
+        Artisan::call('migrate:fresh');
 
         $this->assertTableNotExists('old_table');
         $this->assertTableExists('new_table');
@@ -36,6 +37,8 @@ class MigrateFreshTest extends TestCase
 
     protected function tableExists(string $tableName): bool
     {
+        //DB::reconnect();
+
         return Schema::hasTable($tableName);
     }
 }

@@ -4,6 +4,9 @@ namespace Spatie\MigrateFresh\Test;
 
 use Illuminate\Database\Schema\Blueprint;
 use Orchestra\Testbench\TestCase as Orchestra;
+use Schema;
+use DB;
+use stdClass;
 
 abstract class TestCase extends Orchestra
 {
@@ -19,28 +22,25 @@ abstract class TestCase extends Orchestra
      */
     protected function getEnvironmentSetUp($app)
     {
-        $app->useDatabasePath(__DIR__ . '/database/migrations');
-
-        $app['config']->set('database.default', 'sqlite');
-        $app['config']->set('database.connections.sqlite', [
-            'driver' => 'sqlite',
-            'database' => ':memory:',
+        $app['config']->set('database.default', 'mysql');
+        $app['config']->set('database.connections.mysql', [
+            'driver' => 'mysql',
+            'host' => 'localhost',
+            'database' => 'laravel_migrate_refresh',
+            'username' => env('DB_USERNAME', 'root'),
+            'password' => env('DB_PASSWORD', ''),
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
             'prefix' => '',
+            'strict' => false,
         ]);
     }
 
-    /**
-     * Resolve application Console Kernel implementation.
-     *
-     * @param  \Illuminate\Foundation\Application  $app
-     * @return void
-     */
-    protected function resolveApplicationConsoleKernel($app)
+    protected function getPackageProviders($app)
     {
-        $app->singleton(
-            \Illuminate\Contracts\Console\Kernel::class,
-            \Spatie\MigrateFresh\Test\Kernel::class
-        );
+        return [
+            MigrateFreshServiceProvider::class,
+        ];
     }
 
     /**
@@ -48,9 +48,28 @@ abstract class TestCase extends Orchestra
      */
     protected function setUpDatabase($app)
     {
+        $this->dropAllTables();
+
+        $app->useDatabasePath(__DIR__ . '/database');
+
         $app['db']->connection()->getSchemaBuilder()->create('old_table', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
         });
+    }
+
+    public function dropAllTables()
+    {
+        Schema::disableForeignKeyConstraints();
+
+        collect(DB::select('SHOW TABLES'))
+            ->map(function (stdClass $tableProperties) {
+                return get_object_vars($tableProperties)[key($tableProperties)];
+            })
+            ->each(function (string $tableName) {
+                Schema::drop($tableName);
+            });
+
+        Schema::enableForeignKeyConstraints();
     }
 }
