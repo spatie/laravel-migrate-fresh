@@ -1,13 +1,42 @@
 <?php
 
-namespace Spatie\Skeleton\Test;
+namespace Spatie\MigrateFresh\Test;
 
-use Orchestra\Testbench\TestCase as OrchestraTestCase;
+use Illuminate\Database\Schema\Blueprint;
+use Orchestra\Testbench\TestCase as Orchestra;
 
-class TestCase extends OrchestraTestCase
+abstract class TestCase extends Orchestra
 {
-    public function true_is_true()
+    public function setUp()
     {
-        $this->assertTrue(true);
+        parent::setUp();
+
+        $this->setUpDatabase($this->app);
+    }
+
+    /**
+     * @param \Illuminate\Foundation\Application $app
+     *
+     */
+    protected function getEnvironmentSetUp($app)
+    {
+        $app['config']->set('database.default', 'sqlite');
+        $app['config']->set('database.connections.sqlite', [
+            'driver' => 'sqlite',
+            'database' => ':memory:',
+            'prefix' => '',
+        ]);
+    }
+
+    /**
+     * @param \Illuminate\Foundation\Application $app
+     */
+    protected function setUpDatabase($app)
+    {
+        $app['db']->connection()->getSchemaBuilder()->create('test_models', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+        });
+
     }
 }
