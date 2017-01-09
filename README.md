@@ -3,7 +3,7 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-migrate-fresh.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-migrate-fresh)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://img.shields.io/travis/spatie/laravel-migrate-fresh/master.svg?style=flat-square)](https://travis-ci.org/spatie/laravel-migrate-fresh)
-[![SensioLabsInsight](https://img.shields.io/sensiolabs/i/xxxxxxxxx.svg?style=flat-square)](https://insight.sensiolabs.com/projects/xxxxxxxxx)
+[![SensioLabsInsight](https://img.shields.io/sensiolabs/i/b38ed189-9b84-455f-90ad-d8388d243274.svg?style=flat-square)](https://insight.sensiolabs.com/projects/b38ed189-9b84-455f-90ad-d8388d243274)
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-migrate-fresh.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-migrate-fresh)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-migrate-fresh.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-migrate-fresh)
 

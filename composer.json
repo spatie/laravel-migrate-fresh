@@ -3,6 +3,10 @@
     "description": "A command to build up the database from scratch",
     "keywords": [
         "spatie",
+        "migrate",
+        "fresh",
+        "eloquent",
+        "database",
         "laravel-migrate-fresh"
     ],
     "homepage": "https://github.com/spatie/laravel-migrate-fresh",
