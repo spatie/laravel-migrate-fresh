@@ -3,10 +3,10 @@
 namespace Spatie\MigrateFresh\Commands;
 
 use DB;
-use Schema;
-use stdClass;
 use Illuminate\Console\Command;
 use Illuminate\Console\ConfirmableTrait;
+use Spatie\MigrateFresh\TableDroppers\TableDropper;
+use Spatie\MigrateFresh\Exceptions\CannotDropTables;
 
 class MigrateFresh extends Command
 {
@@ -38,7 +38,7 @@ class MigrateFresh extends Command
         }
 
         $this->info('Dropping all tables...');
-        $this->dropAllTables();
+        $this->getTableDropper()->dropAllTables();
 
         $this->info('Running migrations...');
         $this->call('migrate', ['--force' => true]);
@@ -51,18 +51,16 @@ class MigrateFresh extends Command
         $this->comment('All done!');
     }
 
-    public function dropAllTables()
+    public function getTableDropper(): TableDropper
     {
-        Schema::disableForeignKeyConstraints();
+        $driverName = DB::getDriverName();
 
-        collect(DB::select('SHOW TABLES'))
-            ->map(function (stdClass $tableProperties) {
-                return get_object_vars($tableProperties)[key($tableProperties)];
-            })
-            ->each(function (string $tableName) {
-                Schema::drop($tableName);
-            });
+        $dropperClass = '\\Spatie\\MigrateFresh\\TableDroppers\\'.ucfirst($driverName);
 
-        Schema::enableForeignKeyConstraints();
+        if (! class_exists($dropperClass)) {
+            throw CannotDropTables::unsupportedDbDriver($driverName);
+        }
+
+        return new $dropperClass;
     }
 }
