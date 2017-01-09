@@ -16,7 +16,6 @@ abstract class TestCase extends Orchestra
 
     /**
      * @param \Illuminate\Foundation\Application $app
-     *
      */
     protected function getEnvironmentSetUp($app)
     {
@@ -37,6 +36,5 @@ abstract class TestCase extends Orchestra
             $table->increments('id');
             $table->string('name');
         });
-
     }
 }
