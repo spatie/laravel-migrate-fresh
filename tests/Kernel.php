@@ -2,7 +2,6 @@
 
 namespace Spatie\MigrateFresh\Test;
 
-use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Spatie\MigrateFresh\Commands\MigrateFresh;
 
