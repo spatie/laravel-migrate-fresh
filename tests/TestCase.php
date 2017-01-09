@@ -2,9 +2,10 @@
 
 namespace Spatie\Skeleton\Test;
 
-class ExampleTest extends \PHPUnit_Framework_TestCase
+use Orchestra\Testbench\TestCase as OrchestraTestCase;
+
+class TestCase extends OrchestraTestCase
 {
-    /** @test */
     public function true_is_true()
     {
         $this->assertTrue(true);
