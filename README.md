@@ -47,7 +47,7 @@ protected $commands = [
 
 ## Usage
 
-Issueing this command will drop all tables from your database and run all migrations. 
+This command will drop all tables from your database and run all migrations. 
 
 ```bash
 php artisan migrate:fresh
