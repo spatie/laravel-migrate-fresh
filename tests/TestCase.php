@@ -2,11 +2,11 @@
 
 namespace Spatie\MigrateFresh\Test;
 
+use DB;
+use Schema;
+use stdClass;
 use Illuminate\Database\Schema\Blueprint;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Schema;
-use DB;
-use stdClass;
 
 abstract class TestCase extends Orchestra
 {
@@ -50,7 +50,7 @@ abstract class TestCase extends Orchestra
     {
         $this->dropAllTables();
 
-        $app->useDatabasePath(__DIR__ . '/database');
+        $app->useDatabasePath(__DIR__.'/database');
 
         $app['db']->connection()->getSchemaBuilder()->create('old_table', function (Blueprint $table) {
             $table->increments('id');
