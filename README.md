@@ -47,11 +47,14 @@ protected $commands = [
 
 ## Usage
 
-Issueing this command will drop all tables from your database and run all migrations.
+Issueing this command will drop all tables from your database and run all migrations. 
 
 ```bash
 php artisan migrate:fresh
 ```
+
+> Be aware that the command will knock down all tables in the database. Tables not belonging to your application will be dropped as well.
+
 
 By tagging on the `seed` option all seeders will run as well.
  
@@ -64,7 +67,6 @@ If the command is being executed in a production environment, confirmation will 
  ```bash
  php artisan migrate:fresh --force
  ```
-
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
