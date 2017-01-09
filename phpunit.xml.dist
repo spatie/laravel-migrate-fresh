@@ -14,6 +14,10 @@
             <directory>tests</directory>
         </testsuite>
     </testsuites>
+    <php>
+        <env name="DB_DEFAULT_CONNECTION" value="sqlite"/>
+        <env name="DB_DATABASE" value="database.sqlite"/>
+    </php>
     <filter>
         <whitelist>
             <directory suffix=".php">src/</directory>
