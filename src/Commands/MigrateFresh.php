@@ -2,11 +2,11 @@
 
 namespace Spatie\MigrateFresh\Commands\MigrateFresh;
 
-use Illuminate\Console\Command;
 use DB;
-use Illuminate\Console\ConfirmableTrait;
 use Schema;
 use stdClass;
+use Illuminate\Console\Command;
+use Illuminate\Console\ConfirmableTrait;
 
 class MigrateFresh extends Command
 {
@@ -33,7 +33,7 @@ class MigrateFresh extends Command
      */
     public function handle()
     {
-        if (!$this->confirmToProceed()) {
+        if (! $this->confirmToProceed()) {
             return;
         }
 
