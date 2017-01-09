@@ -4,7 +4,6 @@ namespace Spatie\MigrateFresh\Test;
 
 use Schema;
 use Artisan;
-use Illuminate\Support\Facades\DB;
 
 class MigrateFreshTest extends TestCase
 {
@@ -37,8 +36,6 @@ class MigrateFreshTest extends TestCase
 
     protected function tableExists(string $tableName): bool
     {
-        //DB::reconnect();
-
         return Schema::hasTable($tableName);
     }
 }

@@ -26,7 +26,7 @@ abstract class TestCase extends Orchestra
         $app['config']->set('database.connections.mysql', [
             'driver' => 'mysql',
             'host' => 'localhost',
-            'database' => 'laravel_migrate_refresh',
+            'database' => 'laravel_migrate_fresh',
             'username' => env('DB_USERNAME', 'root'),
             'password' => env('DB_PASSWORD', ''),
             'charset' => 'utf8',
