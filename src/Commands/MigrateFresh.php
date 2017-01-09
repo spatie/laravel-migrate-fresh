@@ -53,7 +53,7 @@ class MigrateFresh extends Command
 
     public function dropAllTables()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        Schema::disableForeignKeyConstraints();
 
         collect(DB::select('SHOW TABLES'))
             ->map(function (stdClass $tableProperties) {
@@ -63,6 +63,6 @@ class MigrateFresh extends Command
                 Schema::drop($tableName);
             });
 
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        Schema::enableForeignKeyConstraints();
     }
 }
