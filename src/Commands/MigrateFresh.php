@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\MigrateFresh\Commands\MigrateFresh;
+namespace Spatie\MigrateFresh\Commands;
 
 use DB;
 use Schema;

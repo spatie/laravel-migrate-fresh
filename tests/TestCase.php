@@ -19,6 +19,8 @@ abstract class TestCase extends Orchestra
      */
     protected function getEnvironmentSetUp($app)
     {
+        $app->useDatabasePath(__DIR__ . '/database/migrations');
+
         $app['config']->set('database.default', 'sqlite');
         $app['config']->set('database.connections.sqlite', [
             'driver' => 'sqlite',
@@ -28,11 +30,25 @@ abstract class TestCase extends Orchestra
     }
 
     /**
+     * Resolve application Console Kernel implementation.
+     *
+     * @param  \Illuminate\Foundation\Application  $app
+     * @return void
+     */
+    protected function resolveApplicationConsoleKernel($app)
+    {
+        $app->singleton(
+            \Illuminate\Contracts\Console\Kernel::class,
+            \Spatie\MigrateFresh\Test\Kernel::class
+        );
+    }
+
+    /**
      * @param \Illuminate\Foundation\Application $app
      */
     protected function setUpDatabase($app)
     {
-        $app['db']->connection()->getSchemaBuilder()->create('test_models', function (Blueprint $table) {
+        $app['db']->connection()->getSchemaBuilder()->create('old_table', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
         });
