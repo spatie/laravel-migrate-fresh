@@ -5,6 +5,7 @@
 [![Build Status](https://img.shields.io/travis/spatie/laravel-migrate-fresh/master.svg?style=flat-square)](https://travis-ci.org/spatie/laravel-migrate-fresh)
 [![SensioLabsInsight](https://img.shields.io/sensiolabs/i/b38ed189-9b84-455f-90ad-d8388d243274.svg?style=flat-square)](https://insight.sensiolabs.com/projects/b38ed189-9b84-455f-90ad-d8388d243274)
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-migrate-fresh.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-migrate-fresh)
+[![StyleCI](https://styleci.io/repos/78428025/shield?branch=master)](https://styleci.io/repos/78428025)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-migrate-fresh.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-migrate-fresh)
 
 Laravel has a `migrate:refresh` command to build up the database using migrations. To clear the database it'll first rollback all migrations by using the `down` method in each migration.
