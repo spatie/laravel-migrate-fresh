@@ -90,7 +90,7 @@ If you discover any security related issues, please email freek@spatie.be instea
 - [Freek Van der Herten](https://github.com/freekmurze)
 - [All Contributors](../../contributors)
 
-Initial code to drop all tables in a Postgresql db was provided by [Jonathan Reinink](https://gist.github.com/reinink)
+Initial code to drop all tables in a Postgresql db was provided by [Jonathan Reinink](https://gist.github.com/reinink) and reviewed by [Peter Matseykanets](https://github.com/pmatseykanets).
 
 ## About Spatie
 Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
