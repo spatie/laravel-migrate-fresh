@@ -9,45 +9,24 @@ class Pgsql implements TableDropper
 {
     public function dropAllTables()
     {
-        $tables = $this->getTables($this->getSchema());
+        $tableNames = $this->getTableNames();
 
-        if ($tables->isEmpty()) {
+        if ($tableNames->isEmpty()) {
             return;
         }
 
-        $this->drop($tables);
-    }
-
-    /**
-     * Drop tables.
-     *
-     * @param \Illuminate\Support\Collection $tables
-     */
-    protected function drop(Collection $tables)
-    {
-        DB::statement("DROP TABLE {$tables->implode(',')} CASCADE");
+        DB::statement("DROP TABLE {$tableNames->implode(',')} CASCADE");
     }
 
     /**
      * Get a list of all tables in the schema.
      *
-     * @param $schema
      * @return \Illuminate\Support\Collection
      */
-    protected function getTables($schema)
+    protected function getTableNames()
     {
         return collect(
-            DB::select('SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname = ?', [$schema])
+            DB::select('SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname = ?', [DB::getConfig('schema')])
         )->pluck('tablename');
-    }
-
-    /**
-     * Get schema name for the connection.
-     *
-     * @return string
-     */
-    protected function getSchema()
-    {
-        return DB::getConfig('schema');
     }
 }
