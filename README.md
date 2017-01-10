@@ -24,7 +24,7 @@ The best postcards will get published on the open source page on our website.
 
 ## Requirements
 
-Currently this command only works on MySQL databases.
+This command supports MySQL and PostgreSQL databases.
 
 ## Installation
 
