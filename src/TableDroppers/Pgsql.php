@@ -3,7 +3,6 @@
 namespace Spatie\MigrateFresh\TableDroppers;
 
 use DB;
-use Illuminate\Support\Collection;
 
 class Pgsql implements TableDropper
 {
