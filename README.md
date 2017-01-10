@@ -10,7 +10,7 @@
 
 Laravel has a `migrate:refresh` command to build up the database using migrations. To clear the database it'll first rollback all migrations by using the `down` method in each migration.
 
-But what if you don't use the `down` method inside your projects. Your migrations will fail as the database isn't cleared first.
+But what if you don't use the `down` method inside your projects? The `migrate:refresh` command will fail as the database isn't cleared first.
 
 This package contains a `migrate:fresh` command that'll nuke all the tables in your database regardless of whether you've set up the `down` method in each migration.
 
