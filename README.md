@@ -70,8 +70,16 @@ If the command is being executed in a production environment, confirmation will 
  
  ### Events
  
- You might want to perform some custom logic when rebuilding the database. 
- 
+This package fires several events, which you can hook into to perform some extra logic rebuilding the database.
+
+#### ` Spatie\MigrateFresh\Events\DroppingTables`
+
+will be fired right before dropping the first table
+
+#### ` Spatie\MigrateFresh\Events\DroppedTables`
+
+will be fired right after all the tables have been dropped and before running the `up` steps of the migrations.
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
