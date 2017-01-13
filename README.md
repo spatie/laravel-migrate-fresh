@@ -68,7 +68,7 @@ If the command is being executed in a production environment, confirmation will 
  php artisan migrate:fresh --force
  ```
  
- ### Events
+### Events
  
 This package fires several events, which you can hook into to perform some extra logic rebuilding the database.
 
