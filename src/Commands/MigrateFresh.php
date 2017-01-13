@@ -43,7 +43,7 @@ class MigrateFresh extends Command
 
         event(new DroppingTables());
         $this->getTableDropper()->dropAllTables();
-        //event(new DroppedTables());
+        event(new DroppedTables());
 
         $this->info('Running migrations...');
         $this->call('migrate', ['--force' => true]);
