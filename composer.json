@@ -21,8 +21,8 @@
     ],
     "require": {
         "php": "^7.0",
-        "illuminate/console": "^5.3"
-
+        "illuminate/console": "^5.3.28",
+        "illuminate/events": "^5.3.28"
     },
     "require-dev": {
         "mockery/mockery": "^0.9.7",

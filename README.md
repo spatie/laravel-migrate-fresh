@@ -67,6 +67,11 @@ If the command is being executed in a production environment, confirmation will 
  ```bash
  php artisan migrate:fresh --force
  ```
+ 
+ ### Events
+ 
+ You might want to perform some custom logic when rebuilding the database. 
+ 
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
