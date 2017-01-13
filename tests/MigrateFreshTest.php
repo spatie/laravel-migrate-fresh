@@ -4,6 +4,8 @@ namespace Spatie\MigrateFresh\Test;
 
 use Schema;
 use Artisan;
+use Spatie\MigrateFresh\Events\DroppedTables;
+use Spatie\MigrateFresh\Events\DroppingTables;
 
 class MigrateFreshTest extends TestCase
 {
@@ -17,6 +19,17 @@ class MigrateFreshTest extends TestCase
 
         $this->assertTableNotExists('old_table');
         $this->assertTableExists('new_table');
+    }
+
+    /** @test */
+    public function it_will_fire_events()
+    {
+        $this->expectsEvents([
+            DroppingTables::class,
+            DroppedTables::class,
+        ]);
+
+        Artisan::call('migrate:fresh');
     }
 
     protected function assertTableExists(string $tableName)

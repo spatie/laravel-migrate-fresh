@@ -5,6 +5,8 @@ namespace Spatie\MigrateFresh\Commands;
 use DB;
 use Illuminate\Console\Command;
 use Illuminate\Console\ConfirmableTrait;
+use Spatie\MigrateFresh\Events\DroppedTables;
+use Spatie\MigrateFresh\Events\DroppingTables;
 use Spatie\MigrateFresh\TableDroppers\TableDropper;
 use Spatie\MigrateFresh\Exceptions\CannotDropTables;
 
@@ -38,7 +40,10 @@ class MigrateFresh extends Command
         }
 
         $this->info('Dropping all tables...');
+
+        event(new DroppingTables());
         $this->getTableDropper()->dropAllTables();
+        //event(new DroppedTables());
 
         $this->info('Running migrations...');
         $this->call('migrate', ['--force' => true]);
