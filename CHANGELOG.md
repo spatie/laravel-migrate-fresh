@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-migrate-fresh` will be documented in this file
 
+## 1.3.0 - 2017-01-11
+
+- added `DroppedTables` and `DroppingTables` events
+
 ## 1.2.0 - 2017-01-11
 
 - added support for Sqlite
