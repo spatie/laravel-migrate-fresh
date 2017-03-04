@@ -81,6 +81,8 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 
 ## Testing
 
+In order for the test to be run you should we set up a empty mysql database `laravel_migrate_fresh` . The username should be `root`, the required password should be empty.
+
 ``` bash
 $ composer test
 ```
