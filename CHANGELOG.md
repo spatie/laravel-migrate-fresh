@@ -2,9 +2,13 @@
 
 All notable changes to `laravel-migrate-fresh` will be documented in this file
 
+## 1.4.0 - 2017-03-09
+
+- added support for MS SQL Server
+
 ## 1.3.1 - 2017-03-04
 
-- fix bug where dropping of tables in mysql would crash if views were present
+- fixed bug where dropping of tables in mysql would crash if views were present
 
 ## 1.3.0 - 2017-01-11
 
