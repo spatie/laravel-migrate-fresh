@@ -7,6 +7,7 @@ use Illuminate\Console\Command;
 use Illuminate\Console\ConfirmableTrait;
 use Spatie\MigrateFresh\Events\DroppedTables;
 use Spatie\MigrateFresh\Events\DroppingTables;
+use Spatie\MigrateFresh\TableDropperFactory;
 use Spatie\MigrateFresh\TableDroppers\TableDropper;
 use Spatie\MigrateFresh\Exceptions\CannotDropTables;
 
@@ -58,14 +59,6 @@ class MigrateFresh extends Command
 
     public function getTableDropper(): TableDropper
     {
-        $driverName = DB::getDriverName();
-
-        $dropperClass = '\\Spatie\\MigrateFresh\\TableDroppers\\'.ucfirst($driverName);
-
-        if (! class_exists($dropperClass)) {
-            throw CannotDropTables::unsupportedDbDriver($driverName);
-        }
-
-        return new $dropperClass;
+        return TableDropperFactory::create(DB::getDriverName());
     }
 }

@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-migrate-fresh` will be documented in this file
 
+## 1.4.1 - 2017-03-22
+
+- moved table dropper creation code to `TableDropperFactory`
+
 ## 1.4.0 - 2017-03-09
 
 - added support for MS SQL Server
