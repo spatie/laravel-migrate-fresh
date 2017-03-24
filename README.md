@@ -3,7 +3,6 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-migrate-fresh.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-migrate-fresh)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://img.shields.io/travis/spatie/laravel-migrate-fresh/master.svg?style=flat-square)](https://travis-ci.org/spatie/laravel-migrate-fresh)
-[![SensioLabsInsight](https://img.shields.io/sensiolabs/i/b38ed189-9b84-455f-90ad-d8388d243274.svg?style=flat-square)](https://insight.sensiolabs.com/projects/b38ed189-9b84-455f-90ad-d8388d243274)
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-migrate-fresh.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-migrate-fresh)
 [![StyleCI](https://styleci.io/repos/78428025/shield?branch=master)](https://styleci.io/repos/78428025)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-migrate-fresh.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-migrate-fresh)
@@ -20,7 +19,7 @@ You're free to use this package (it's [MIT-licensed](LICENSE.md)), but if it mak
 
 Our address is: Spatie, Samberstraat 69D, 2060 Antwerp, Belgium.
 
-The best postcards will get published on the open source page on our website.
+The best postcards are published [on our website](https://spatie.be/en/opensource/postcards).
 
 ## Requirements
 
