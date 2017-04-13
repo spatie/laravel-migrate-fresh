@@ -24,8 +24,14 @@ class Pgsql implements TableDropper
      */
     protected function getTableNames()
     {
+        $schemas = DB::getConfig('used_schemas') ?: [DB::getConfig('schema')];
+
+        $schemas_count = count($schemas);
+
+        $binds = implode(',', array_fill(0, $schemas_count, '?'));
+
         return collect(
-            DB::select('SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname = ?', [DB::getConfig('schema')])
-        )->pluck('tablename');
+            DB::select("SELECT schemaname || '.' || tablename AS table FROM pg_catalog.pg_tables WHERE schemaname IN (" . $binds . ")", $schemas)
+        )->pluck('table');
     }
 }
