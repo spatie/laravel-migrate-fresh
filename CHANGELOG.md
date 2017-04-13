@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-migrate-fresh` will be documented in this file
 
+## 1.4.2 - 2017-04-13
+
+- add support for `used_schemas` parameter in the Postgres configuration
+
 ## 1.4.1 - 2017-03-22
 
 - moved table dropper creation code to `TableDropperFactory`

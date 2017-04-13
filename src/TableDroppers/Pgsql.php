@@ -26,9 +26,9 @@ class Pgsql implements TableDropper
     {
         $schemas = DB::getConfig('used_schemas') ?: [DB::getConfig('schema')];
 
-        $schemas_count = count($schemas);
+        $schemaCount = count($schemas);
 
-        $binds = implode(',', array_fill(0, $schemas_count, '?'));
+        $binds = implode(',', array_fill(0, $schemaCount, '?'));
 
         return collect(
             DB::select("SELECT schemaname || '.' || tablename AS table FROM pg_catalog.pg_tables WHERE schemaname IN (" . $binds . ")", $schemas)
