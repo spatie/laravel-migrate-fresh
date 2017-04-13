@@ -31,7 +31,7 @@ class Pgsql implements TableDropper
         $binds = implode(',', array_fill(0, $schemaCount, '?'));
 
         return collect(
-            DB::select("SELECT schemaname || '.' || tablename AS table FROM pg_catalog.pg_tables WHERE schemaname IN (" . $binds . ")", $schemas)
+            DB::select("SELECT schemaname || '.' || tablename AS table FROM pg_catalog.pg_tables WHERE schemaname IN (".$binds.')', $schemas)
         )->pluck('table');
     }
 }
