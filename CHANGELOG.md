@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-migrate-fresh` will be documented in this file
 
+## 1.4.3. - 2017-04-21
+
+- fully qualify the Schema facade to avoid class name conflicts with un-namespaced classes
+
 ## 1.4.2 - 2017-04-13
 
 - add support for `used_schemas` parameter in the Postgres configuration
