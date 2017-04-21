@@ -3,8 +3,8 @@
 namespace Spatie\MigrateFresh\TableDroppers;
 
 use DB;
-use Schema;
 use stdClass;
+use Illuminate\Support\Facades\Schema;
 
 class Mysql implements TableDropper
 {
