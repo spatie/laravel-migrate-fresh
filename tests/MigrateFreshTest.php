@@ -2,8 +2,8 @@
 
 namespace Spatie\MigrateFresh\Test;
 
-use Schema;
-use Artisan;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Artisan;
 use Spatie\MigrateFresh\Events\DroppedTables;
 use Spatie\MigrateFresh\Events\DroppingTables;
 

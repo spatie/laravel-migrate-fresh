@@ -2,8 +2,8 @@
 
 namespace Spatie\MigrateFresh\Commands;
 
-use DB;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Console\ConfirmableTrait;
 use Spatie\MigrateFresh\TableDropperFactory;
 use Spatie\MigrateFresh\Events\DroppedTables;
