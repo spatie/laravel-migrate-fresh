@@ -17,7 +17,6 @@ class Mysql implements TableDropper
                 return get_object_vars($tableProperties)[key($tableProperties)];
             })
             ->each(function (string $tableName) {
-                $tableName = str_after($tableName, Schema::getConnection()->getTablePrefix());
                 Schema::drop($tableName);
             });
 

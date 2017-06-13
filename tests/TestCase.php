@@ -31,7 +31,7 @@ abstract class TestCase extends Orchestra
             'password' => env('DB_PASSWORD', ''),
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
-            'prefix' => 'test_',
+            'prefix' => '',
             'strict' => false,
         ]);
     }
@@ -67,7 +67,6 @@ abstract class TestCase extends Orchestra
                 return get_object_vars($tableProperties)[key($tableProperties)];
             })
             ->each(function (string $tableName) {
-                $tableName = str_after($tableName, Schema::getConnection()->getTablePrefix());
                 Schema::drop($tableName);
             });
 
