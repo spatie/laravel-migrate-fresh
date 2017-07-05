@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-migrate-fresh` will be documented in this file
 
+## 1.4.5 - 2017-07-05
+
+- improve command description
+
 ## 1.4.4 - 2017-05-03
 
 - use fqcn for facade imports
