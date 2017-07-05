@@ -26,7 +26,7 @@ class MigrateFresh extends Command
      *
      * @var string
      */
-    protected $description = 'Drop all tables from db and rebuild it using migrations.';
+    protected $description = 'Drop all database tables and re-run all migrations';
 
     /**
      * Execute the console command.
