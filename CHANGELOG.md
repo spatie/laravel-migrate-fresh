@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-migrate-fresh` will be documented in this file
 
+## 1.5.0 - 2017-07-06
+
+- add command options
+
 ## 1.4.5 - 2017-07-05
 
 - improve command description
