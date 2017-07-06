@@ -19,7 +19,10 @@ class MigrateFresh extends Command
      *
      * @var string
      */
-    protected $signature = 'migrate:fresh {--seed} {--force}';
+    protected $signature = 'migrate:fresh {--database= : The database connection to use.}
+                {--force : Force the operation to run when in production.}
+                {--path= : The path of migrations files to be executed.}
+                {--seed : Indicates if the seed task should be re-run.}';
 
     /**
      * The console command description.
@@ -35,6 +38,10 @@ class MigrateFresh extends Command
      */
     public function handle()
     {
+        $database = $this->input->getOption('database');
+
+        $path = $this->input->getOption('path');
+
         if (! $this->confirmToProceed()) {
             return;
         }
@@ -42,11 +49,18 @@ class MigrateFresh extends Command
         $this->info('Dropping all tables...');
 
         event(new DroppingTables());
+        if ($database !== null) {
+            DB::setDefaultConnection($database);
+        }
         $this->getTableDropper()->dropAllTables();
         event(new DroppedTables());
 
         $this->info('Running migrations...');
-        $this->call('migrate', ['--force' => true]);
+        $this->call('migrate', [
+            '--database' => $database,
+            '--path' => $path,
+            '--force' => true,
+        ]);
 
         if ($this->option('seed')) {
             $this->info('Running seeders...');
