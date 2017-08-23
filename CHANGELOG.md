@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-migrate-fresh` will be documented in this file
 
+## 1.5.0 - 2017-08-23
+- don't drop/create `:memory:` sqlite databases
+
 ## 1.5.0 - 2017-07-06
 
 - add command options

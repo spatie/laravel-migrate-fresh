@@ -10,6 +10,10 @@ class Sqlite implements TableDropper
     {
         $dbPath = DB::getConfig('database');
 
+        if ($dbPath === ':memory:') {
+            return;
+        }
+
         if (file_exists($dbPath)) {
             unlink($dbPath);
         }
