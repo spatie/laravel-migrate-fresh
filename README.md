@@ -25,6 +25,8 @@ The best postcards are published [on our website](https://spatie.be/en/opensourc
 
 This command supports MySQL, sqlite, PostgreSQL and MS SQL databases.
 
+_Note: the `migrate:fresh` command is [included by default](https://laravel-news.com/migrate-fresh) in Laravel 5.5._
+
 ## Installation
 
 You can install the package via composer:
