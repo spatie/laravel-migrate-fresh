@@ -32,6 +32,6 @@ class Pgsql implements TableDropper
 
         return collect(
             DB::select("SELECT schemaname || '.' || tablename AS table FROM pg_catalog.pg_tables WHERE schemaname IN (".$binds.')', $schemas)
-        )->pluck('table');
+        )->pluck('table')->forget('spatial_ref_sys');
     }
 }
