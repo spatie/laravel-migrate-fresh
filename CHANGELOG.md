@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-migrate-fresh` will be documented in this file
 
+## 1.5.2 - 2018-02-06
+- ignore `spatial_ref_sys` 
+
 ## 1.5.1 - 2017-08-23
 - don't drop/create `:memory:` sqlite databases
 
