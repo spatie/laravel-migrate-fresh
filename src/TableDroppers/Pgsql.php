@@ -34,7 +34,7 @@ class Pgsql implements TableDropper
             DB::select("SELECT schemaname || '.' || tablename AS table FROM pg_catalog.pg_tables WHERE schemaname IN (".$binds.')', $schemas)
         )->pluck('table')->reject(function ($value, $key) {
             $tableName = explode('.', $value)[1];
-            
+
             return $tableName === 'spatial_ref_sys';
         });
     }
