@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-migrate-fresh` will be documented in this file
 
+## 1.5.4 - 2018-08-27
+- improve support for Sqlsrv
+
 ## 1.5.3 - 2018-02-5
 - fixes a bug where `spatial_ref_sys` would not be ignored
 
