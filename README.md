@@ -1,3 +1,5 @@
+## The migrate:fresh command is included by default since Laravel 5.5.
+
 # An artisan command to build up the database from scratch
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-migrate-fresh.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-migrate-fresh)
